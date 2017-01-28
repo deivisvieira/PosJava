@@ -42,9 +42,8 @@ public class ControleTipoMoedaExcluir extends HttpServlet {
             daoTipoMoeda = new DAOTipoMoeda();
             tipoMoeda = new TipoMoeda();
 
-            tipoMoeda.setNome(request.getParameter("txtNome"));
-            tipoMoeda.setSimbolo(request.getParameter("txtSimbolo"));
-
+            tipoMoeda.setId(Integer.parseInt(request.getParameter("hdnId")));
+            
             daoTipoMoeda.excluir(tipoMoeda);
 
             msg = "Exclusão realizada com sucesso";

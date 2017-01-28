@@ -78,12 +78,19 @@
                                     <tr role="row">
                                         <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 153px;">Nome</th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 186px;">Símbolo</th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 186px;"></th>
                                     </tr>
                                 </thead>
                                 <c:forEach var="item" items="${al}" varStatus="id">
                                     <tr class="#${id.count % 2 == 0 ? 'gradeA even' : 'gradeA odd' }" role="row">
                                         <td class="sorting_1">${item.nome}</td>
                                         <td>${item.simbolo}</td>
+                                        <td>
+                                            <form action="/PosJava/controle.tipomoeda.excluir" method="POST">
+                                                <input type="hidden" name="hdnId" value="${item.id}"/>
+                                                <input type="submit" class="btn btn-danger" value="Excluir"/>
+                                            </form>
+                                        </td>
                                     </tr>
                                 </c:forEach>
                         </div>

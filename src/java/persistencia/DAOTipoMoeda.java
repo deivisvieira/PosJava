@@ -43,10 +43,9 @@ public class DAOTipoMoeda {
     }
 
     public void excluir(TipoMoeda tipoMoeda) throws Exception {
-        pst = con.prepareStatement("DELETE FROM sql10156007.tipo_moeda WHERE nome = ? and simbolo = ?");
+        pst = con.prepareStatement("DELETE FROM sql10156007.tipo_moeda WHERE id = ?");
 
-        pst.setString(1, tipoMoeda.getNome());
-        pst.setString(2, tipoMoeda.getSimbolo());
+        pst.setInt(1, tipoMoeda.getId());        
 
         pst.execute();
 
