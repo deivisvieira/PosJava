@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 import modelo.TipoMoeda;
 
 /**
@@ -41,9 +43,10 @@ public class DAOTipoMoeda {
     }
 
     public void excluir(TipoMoeda tipoMoeda) throws Exception {
-        pst = con.prepareStatement("DELETE FROM sql10156007.tipo_moeda WHERE id = ?");
+        pst = con.prepareStatement("DELETE FROM sql10156007.tipo_moeda WHERE nome = ? and simbolo = ?");
 
-        pst.setInt(1, tipoMoeda.getId());
+        pst.setString(1, tipoMoeda.getNome());
+        pst.setString(2, tipoMoeda.getSimbolo());
 
         pst.execute();
 
@@ -62,23 +65,24 @@ public class DAOTipoMoeda {
         pst.close();
     }
 
-    public TipoMoeda consultar(TipoMoeda tipoMoeda) throws Exception {
+    public ArrayList<TipoMoeda> consultar(TipoMoeda tipoMoeda) throws Exception {
         TipoMoeda temp = null;
-
-        pst = con.prepareStatement("SELECT * FROM sql10156007.tipo_moeda WHERE id = ?");
-        pst.setInt(1, tipoMoeda.getId());
+        ArrayList<TipoMoeda> list = new ArrayList<>();
+        pst = con.prepareStatement("SELECT * FROM sql10156007.tipo_moeda WHERE nome like '%"+tipoMoeda.getNome()+"%' and simbolo like '%"+tipoMoeda.getSimbolo()+"%'");
+                
         rs = pst.executeQuery();
 
-        if (rs.next()) {
+        while (rs.next()) {
             temp = new TipoMoeda();
 
             temp.setId(rs.getInt(1));
             temp.setNome(rs.getString(2));
-            temp.setSimbolo(rs.getString(3));            
+            temp.setSimbolo(rs.getString(3)); 
+            list.add(temp);
         }
         pst.close();
 
-        return temp;
+        return list;
     }
 
 }

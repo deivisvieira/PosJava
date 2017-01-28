@@ -42,7 +42,8 @@ public class ControleTipoMoedaExcluir extends HttpServlet {
             daoTipoMoeda = new DAOTipoMoeda();
             tipoMoeda = new TipoMoeda();
 
-            tipoMoeda.setId(Integer.parseInt(request.getParameter("txtId")));
+            tipoMoeda.setNome(request.getParameter("txtNome"));
+            tipoMoeda.setSimbolo(request.getParameter("txtSimbolo"));
 
             daoTipoMoeda.excluir(tipoMoeda);
 
@@ -52,7 +53,7 @@ public class ControleTipoMoedaExcluir extends HttpServlet {
             msg = "Erro na Exclusão";
         } finally {
             request.setAttribute("mensagem", msg);
-            view = request.getRequestDispatcher("status.jsp");
+            view = request.getRequestDispatcher("pages/status.jsp");
             view.forward(request, response);
         }
     }

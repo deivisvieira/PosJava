@@ -31,9 +31,6 @@
                                     <a href="tipoMoedaIncluir.jsp">Incluir</a>
                                 </li>
                                 <li>
-                                    <a href="tipoMoedaAlterar.jsp">Alterar</a>
-                                </li>
-                                <li>
                                     <a href="tipoMoedaConsultar.jsp">Consultar</a>
                                 </li>
                                 <li>

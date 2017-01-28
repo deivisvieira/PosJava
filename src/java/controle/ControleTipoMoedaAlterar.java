@@ -55,7 +55,7 @@ public class ControleTipoMoedaAlterar extends HttpServlet {
             msg = "Erro na Alteração";
         } finally {
             request.setAttribute("mensagem", msg);
-            view = request.getRequestDispatcher("status.jsp");
+            view = request.getRequestDispatcher("pages/status.jsp");
             view.forward(request, response);
         }
     }

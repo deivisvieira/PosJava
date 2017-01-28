@@ -6,6 +6,8 @@
 package controle;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -42,19 +44,20 @@ public class ControleTipoMoedaConsultar extends HttpServlet {
             daoTipoMoeda = new DAOTipoMoeda();
             tipoMoeda = new TipoMoeda();
 
-            tipoMoeda.setId(Integer.parseInt(request.getParameter("txtId")));
+            tipoMoeda.setNome(request.getParameter("txtNome"));
+            tipoMoeda.setSimbolo(request.getParameter("txtSimbolo"));
 
-            tipoMoeda = daoTipoMoeda.consultar(tipoMoeda);
+            ArrayList<TipoMoeda> lista = daoTipoMoeda.consultar(tipoMoeda);
 
-            request.setAttribute("al", tipoMoeda);
+            request.setAttribute("al", lista);
 
             msg = "Consulta realizada com sucesso";
 
-            view = request.getRequestDispatcher("resultado.jsp");
+            view = request.getRequestDispatcher("/pages/tipoMoedaConsultar.jsp");
             
         } catch (Exception exception) {
             msg = exception.getMessage();
-            view = request.getRequestDispatcher("status.jsp");
+            view = request.getRequestDispatcher("pages/status.jsp");
 
         } finally {
             request.setAttribute("mensagem", msg);
