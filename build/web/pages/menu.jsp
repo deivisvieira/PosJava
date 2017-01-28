@@ -31,11 +31,8 @@
                                     <a href="tipoMoedaIncluir.jsp">Incluir</a>
                                 </li>
                                 <li>
-                                    <a href="tipoMoedaConsultar.jsp">Consultar</a>
-                                </li>
-                                <li>
-                                    <a href="tipoMoedaExcluir.jsp">Excluir</a>
-                                </li>
+                                    <a href="tipoMoedaConsultar.jsp">Consultar/Excluir</a>
+                                </li>                                
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
@@ -46,14 +43,8 @@
                                     <a href="cotacaoIncluir.jsp">Incluir</a>
                                 </li>
                                 <li>
-                                    <a href="cotacaoAlterar.jsp">Alterar</a>
-                                </li>
-                                <li>
-                                    <a href="cotacaoConsultar.jsp">Consultar</a>
-                                </li>
-                                <li>
-                                    <a href="cotacaoExcluir.jsp">Excluir</a>
-                                </li>
+                                    <a href="cotacaoConsultar.jsp">Consultar/Excluir</a>
+                                </li>                                
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
