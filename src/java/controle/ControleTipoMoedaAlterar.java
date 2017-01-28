@@ -6,6 +6,7 @@
 package controle;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +19,7 @@ import persistencia.DAOTipoMoeda;
  *
  * @author profoswaldo
  */
-public class ControleAlunoConsultar extends HttpServlet {
+public class ControleTipoMoedaAlterar extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,33 +33,29 @@ public class ControleAlunoConsultar extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-        DAOTipoMoeda dAOAluno = null;
-        TipoMoeda aluno = null;
+        
+        DAOTipoMoeda daoTipoMoeda = null;
+        TipoMoeda tipoMoeda = null;
         RequestDispatcher view = null;
         String msg = null;
 
         try {
-            dAOAluno = new DAOTipoMoeda();
-            aluno = new TipoMoeda();
+            daoTipoMoeda = new DAOTipoMoeda();
+            tipoMoeda = new TipoMoeda();
 
-            aluno.setMatricula(request.getParameter("txtMatricula"));
+            tipoMoeda.setId(Integer.parseInt(request.getParameter("txtId")));
+            tipoMoeda.setNome(request.getParameter("txtNome"));
+            tipoMoeda.setSimbolo(request.getParameter("txtSimbolo"));
 
-            aluno = dAOAluno.consultar(aluno);
+            daoTipoMoeda.alterar(tipoMoeda);
 
-            request.setAttribute("al", aluno);
+            msg = "Alteração realizada com sucesso";
 
-            msg = "Consulta realizada com sucesso";
-
-            view = request.getRequestDispatcher("resultado.jsp");
-            
         } catch (Exception exception) {
-            msg = exception.getMessage();
-            view = request.getRequestDispatcher("status.jsp");
-
+            msg = "Erro na Alteração";
         } finally {
             request.setAttribute("mensagem", msg);
-
+            view = request.getRequestDispatcher("status.jsp");
             view.forward(request, response);
         }
     }

@@ -19,7 +19,7 @@ import persistencia.DAOTipoMoeda;
  *
  * @author profoswaldo
  */
-public class ControleAlunoAlterar extends HttpServlet {
+public class ControleTipoMoedaExcluir extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,27 +33,23 @@ public class ControleAlunoAlterar extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-        DAOTipoMoeda dAOAluno = null;
-        TipoMoeda aluno = null;
+        DAOTipoMoeda daoTipoMoeda = null;
+        TipoMoeda tipoMoeda = null;
         RequestDispatcher view = null;
         String msg = null;
 
         try {
-            dAOAluno = new DAOTipoMoeda();
-            aluno = new TipoMoeda();
+            daoTipoMoeda = new DAOTipoMoeda();
+            tipoMoeda = new TipoMoeda();
 
-            aluno.setMatricula(request.getParameter("txtMatricula"));
-            aluno.setNome(request.getParameter("txtNome"));
-            aluno.setTeste(Double.parseDouble(request.getParameter("txtTeste")));
-            aluno.setProva(Double.parseDouble(request.getParameter("txtProva")));
+            tipoMoeda.setId(Integer.parseInt(request.getParameter("txtId")));
 
-            dAOAluno.alterar(aluno);
+            daoTipoMoeda.excluir(tipoMoeda);
 
-            msg = "Alteração realizada com sucesso";
+            msg = "Exclusão realizada com sucesso";
 
         } catch (Exception exception) {
-            msg = "Xabu na Alteração";
+            msg = "Erro na Exclusão";
         } finally {
             request.setAttribute("mensagem", msg);
             view = request.getRequestDispatcher("status.jsp");
