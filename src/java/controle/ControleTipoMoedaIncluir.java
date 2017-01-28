@@ -50,7 +50,7 @@ public class ControleTipoMoedaIncluir extends HttpServlet {
             msg = "Inclusão realizada com sucesso";
 
         } catch (Exception exception) {
-            msg = "Erro ao incluir";
+            msg = "Erro ao incluir o tipo de moeda";
         } finally {
             request.setAttribute("mensagem", msg);
             view = request.getRequestDispatcher("status.jsp");

@@ -300,11 +300,11 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="form-group">
-                                    <form action="../controle.ControleTipoMoedaIncluir" method="POST">
+                                    <form action="../controle.tipomoeda.incluir" method="POST">
                                         <label for="nome">Digite o nome:</label>
                                         <input class="form-control" type="text" name="txtNome" value="" /><br/>
                                         <label for="simbolo">Digite o símbolo:</label>
-                                        <input class="form-control" type="text" name="txtTeste" value="" /><br/>
+                                        <input class="form-control" type="text" name="txtSimbolo" value="" /><br/>
                                         <input class="btn btn-default" type="submit" value="Enviar" />
                                         <input class="btn btn-default" type="reset" value="Cancelar" />
                                     </form>

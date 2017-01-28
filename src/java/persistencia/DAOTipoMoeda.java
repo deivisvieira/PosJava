@@ -21,15 +21,15 @@ public class DAOTipoMoeda {
     private PreparedStatement pst = null;
     private ResultSet rs = null;
 
-    public DAOTipoMoeda() throws Exception {
-        Class.forName("org.apache.mysql.jdbc.ClientDriver");
-        con = DriverManager.getConnection("jdbc:mysql://sql10.freemysqlhosting.net:3306/sql10156007", "sql10156007", "AyCXbQiS9J");
+    public DAOTipoMoeda() throws Exception {jdbc:mysql://sql10.freemysqlhosting.net:3306/sql10156007?zeroDateTimeBehavior=convertToNull [sql10156007 em Esquema default]
+        Class.forName("com.mysql.jdbc.Driver").newInstance();
+        con = DriverManager.getConnection("jdbc:mysql://sql10.freemysqlhosting.net:3306/sql10156007?zeroDateTimeBehavior=convertToNull", "sql10156007", "AyCXbQiS9J");
 
     }
 
     public void incluir(TipoMoeda tipoMoeda) throws Exception {
 
-        pst = con.prepareStatement("insert into tipo_moeda values(?,?)");
+        pst = con.prepareStatement("insert into sql10156007.tipo_moeda values(null, ?,?)");
         
         pst.setString(1, tipoMoeda.getNome());
         pst.setString(2, tipoMoeda.getSimbolo());
@@ -41,7 +41,7 @@ public class DAOTipoMoeda {
     }
 
     public void excluir(TipoMoeda tipoMoeda) throws Exception {
-        pst = con.prepareStatement("DELETE FROM tipo_moeda WHERE id = ?");
+        pst = con.prepareStatement("DELETE FROM sql10156007.tipo_moeda WHERE id = ?");
 
         pst.setInt(1, tipoMoeda.getId());
 
@@ -51,7 +51,7 @@ public class DAOTipoMoeda {
     }
 
     public void alterar(TipoMoeda tipoMoeda) throws Exception {
-        pst = con.prepareStatement("UPDATE tipo_moeda SET NOME = ?, SIMBOLO = ? WHERE id = ?");
+        pst = con.prepareStatement("UPDATE sql10156007.tipo_moeda SET nome = ?, simbolo = ? WHERE id = ?");
         
         pst.setString(1, tipoMoeda.getNome());
         pst.setString(2, tipoMoeda.getSimbolo());
@@ -65,7 +65,7 @@ public class DAOTipoMoeda {
     public TipoMoeda consultar(TipoMoeda tipoMoeda) throws Exception {
         TipoMoeda temp = null;
 
-        pst = con.prepareStatement("SELECT * FROM tipo_moeda WHERE id = ?");
+        pst = con.prepareStatement("SELECT * FROM sql10156007.tipo_moeda WHERE id = ?");
         pst.setInt(1, tipoMoeda.getId());
         rs = pst.executeQuery();
 

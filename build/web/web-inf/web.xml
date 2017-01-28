@@ -1,21 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>ControleAluno</servlet-name>
+        <servlet-name>ControleTipoMoedaIncluir</servlet-name>
         <servlet-class>controle.ControleTipoMoedaIncluir</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ControleAlunoExcluir</servlet-name>
+        <servlet-name>ControleTipoMoedaExcluir</servlet-name>
         <servlet-class>controle.ControleTipoMoedaExcluir</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ControleAlunoAlterar</servlet-name>
+        <servlet-name>ControleTipoMoedaAlterar</servlet-name>
         <servlet-class>controle.ControleTipoMoedaAlterar</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ControleConsultar</servlet-name>
+        <servlet-name>ControleTipoMoedaConsultar</servlet-name>
         <servlet-class>controle.ControleTipoMoedaConsultar</servlet-class>
     </servlet>    
+      <servlet-mapping>
+        <servlet-name>ControleTipoMoedaIncluir</servlet-name>
+        <url-pattern>/controle.tipomoeda.incluir</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControleTipoMoedaExcluir</servlet-name>
+        <url-pattern>/controle.tipomoeda.excluir</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControleTipoMoedaAlterar</servlet-name>
+        <url-pattern>/controle.tipomoeda.alterar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControleTipoMoedaConsultar</servlet-name>
+        <url-pattern>/controle.tipomoeda.consultar</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
