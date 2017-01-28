@@ -53,7 +53,7 @@ public class ControleTipoMoedaIncluir extends HttpServlet {
             msg = "Erro ao incluir o tipo de moeda";
         } finally {
             request.setAttribute("mensagem", msg);
-            view = request.getRequestDispatcher("status.jsp");
+            view = request.getRequestDispatcher("pages/status.jsp");
             view.forward(request, response);
         }
 
