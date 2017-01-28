@@ -12,13 +12,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.TipoMoeda;
-import persistencia.DAOAluno;
+import persistencia.DAOTipoMoeda;
 
 /**
  *
  * @author profoswaldo
  */
-public class ControleAlunoIncluir extends HttpServlet {
+public class ControleTipoMoedaIncluir extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,26 +33,24 @@ public class ControleAlunoIncluir extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        DAOAluno dAOAluno = null;
-        TipoMoeda aluno = null;
+        DAOTipoMoeda daoTipoMoeda = null;
+        TipoMoeda tipoMoeda = null;
         RequestDispatcher view = null;
         String msg = null;
 
         try {
-            dAOAluno = new DAOAluno();
-            aluno = new TipoMoeda();
+            daoTipoMoeda = new DAOTipoMoeda();
+            tipoMoeda = new TipoMoeda();
+            
+            tipoMoeda.setNome(request.getParameter("txtNome"));
+            tipoMoeda.setSimbolo(request.getParameter("txtSimbolo"));
 
-            aluno.setMatricula(request.getParameter("txtMatricula"));
-            aluno.setNome(request.getParameter("txtNome"));
-            aluno.setTeste(Double.parseDouble(request.getParameter("txtTeste")));
-            aluno.setProva(Double.parseDouble(request.getParameter("txtProva")));
-
-            dAOAluno.incluir(aluno);
+            daoTipoMoeda.incluir(tipoMoeda);
 
             msg = "Inclusão realizada com sucesso";
 
         } catch (Exception exception) {
-            msg = "Xabu na Inclusão";
+            msg = "Erro ao incluir";
         } finally {
             request.setAttribute("mensagem", msg);
             view = request.getRequestDispatcher("status.jsp");

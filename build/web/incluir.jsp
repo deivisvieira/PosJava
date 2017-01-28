@@ -13,14 +13,10 @@
     </head>
     <body>
         <form action="controle.aluno.incluir" method="POST">
-            Digite a matricula:
-            <input type="text" name="txtMatricula" value="" /><br/>
             Digite o nome:
             <input type="text" name="txtNome" value="" /><br/>
-            Digite ao teste:
+            Digite o símbolo:
             <input type="text" name="txtTeste" value="" /><br/>
-            Digite a prova:
-            <input type="text" name="txtProva" value="" /><br/>
             <input type="submit" value="Enviar" />
             <input type="reset" value="Cancelar" />
         </form>

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.TipoMoeda;
-import persistencia.DAOAluno;
+import persistencia.DAOTipoMoeda;
 
 /**
  *
@@ -33,13 +33,13 @@ public class ControleAlunoExcluir extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        DAOAluno dAOAluno = null;
+        DAOTipoMoeda dAOAluno = null;
         TipoMoeda aluno = null;
         RequestDispatcher view = null;
         String msg = null;
 
         try {
-            dAOAluno = new DAOAluno();
+            dAOAluno = new DAOTipoMoeda();
             aluno = new TipoMoeda();
 
             aluno.setMatricula(request.getParameter("txtMatricula"));

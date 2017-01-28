@@ -6,7 +6,6 @@
 package modelo;
 
 import org.apache.derby.client.am.DateTime;
-import org.apache.derby.client.am.Decimal;
 
 /**
  *
@@ -15,7 +14,7 @@ import org.apache.derby.client.am.Decimal;
 public class Cotacao {
     private int id;
     private DateTime data;
-    private Decimal valor;    
+    private Double valor;    
 
     public int getId() {
         return id;
@@ -33,11 +32,11 @@ public class Cotacao {
         this.data = data;
     }
 
-    public Decimal getValor() {
+    public Double getValor() {
         return valor;
     }
 
-    public void setValor(Decimal valor) {
+    public void setValor(Double valor) {
         this.valor = valor;
     }
 }
