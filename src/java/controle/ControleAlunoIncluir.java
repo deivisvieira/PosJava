@@ -11,7 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Aluno;
+import modelo.TipoMoeda;
 import persistencia.DAOAluno;
 
 /**
@@ -34,13 +34,13 @@ public class ControleAlunoIncluir extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         DAOAluno dAOAluno = null;
-        Aluno aluno = null;
+        TipoMoeda aluno = null;
         RequestDispatcher view = null;
         String msg = null;
 
         try {
             dAOAluno = new DAOAluno();
-            aluno = new Aluno();
+            aluno = new TipoMoeda();
 
             aluno.setMatricula(request.getParameter("txtMatricula"));
             aluno.setNome(request.getParameter("txtNome"));

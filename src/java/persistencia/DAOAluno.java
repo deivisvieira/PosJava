@@ -9,7 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import modelo.Aluno;
+import modelo.TipoMoeda;
 
 /**
  *
@@ -27,7 +27,7 @@ public class DAOAluno {
 
     }
 
-    public void incluir(Aluno aluno) throws Exception {
+    public void incluir(TipoMoeda aluno) throws Exception {
 
         pst = con.prepareStatement("insert into aluno.aluno values(?,?,?,?)");
 
@@ -42,7 +42,7 @@ public class DAOAluno {
 
     }
 
-    public void excluir(Aluno aluno) throws Exception {
+    public void excluir(TipoMoeda aluno) throws Exception {
         pst = con.prepareStatement("DELETE FROM aluno.aluno WHERE MATRICULA = ?");
 
         pst.setString(1, aluno.getMatricula());
@@ -52,7 +52,7 @@ public class DAOAluno {
         pst.close();
     }
 
-    public void alterar(Aluno aluno) throws Exception {
+    public void alterar(TipoMoeda aluno) throws Exception {
         pst = con.prepareStatement("UPDATE aluno.aluno SET NOME = ?, TESTE = ?, PROVA = ? WHERE MATRICULA = ?");
 
         pst.setString(1, aluno.getNome());
@@ -65,15 +65,15 @@ public class DAOAluno {
         pst.close();
     }
 
-    public Aluno consultar(Aluno aluno) throws Exception {
-        Aluno temp = null;
+    public TipoMoeda consultar(TipoMoeda aluno) throws Exception {
+        TipoMoeda temp = null;
 
         pst = con.prepareStatement("SELECT * FROM aluno.aluno WHERE MATRICULA = ?");
         pst.setString(1, aluno.getMatricula());
         rs = pst.executeQuery();
 
         if (rs.next()) {
-            temp = new Aluno();
+            temp = new TipoMoeda();
 
             temp.setMatricula(rs.getString(1));
             temp.setNome(rs.getString(2));
