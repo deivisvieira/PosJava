@@ -15,7 +15,7 @@ import modelo.TipoMoeda;
 
 /**
  *
- * @author profoswaldo
+ * @author Deivis
  */
 public class DAOTipoMoeda {
 

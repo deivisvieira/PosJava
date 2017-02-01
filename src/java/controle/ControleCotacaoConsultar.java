@@ -6,19 +6,21 @@
 package controle;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.TipoMoeda;
-import persistencia.DAOTipoMoeda;
+import modelo.Cotacao;
+import persistencia.DAOCotacao;
 
 /**
  *
  * @author Deivis
  */
-public class ControleTipoMoedaIncluir extends HttpServlet {
+public class ControleCotacaoConsultar extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,30 +35,35 @@ public class ControleTipoMoedaIncluir extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        DAOTipoMoeda daoTipoMoeda = null;
-        TipoMoeda tipoMoeda = null;
+        DAOCotacao daoCotacao = null;
+        Cotacao cotacao = null;
         RequestDispatcher view = null;
         String msg = null;
 
         try {
-            daoTipoMoeda = new DAOTipoMoeda();
-            tipoMoeda = new TipoMoeda();
+            daoCotacao = new DAOCotacao();
+            cotacao = new Cotacao();
+
+            cotacao.setNome(request.getParameter("txtNome"));
+            cotacao.setSimbolo(request.getParameter("txtSimbolo"));
+
+            ArrayList<Cotacao> lista = daoCotacao.consultar(cotacao);
+
+            request.setAttribute("al", lista);
+
+            msg = "Consulta realizada com sucesso";
+
+            view = request.getRequestDispatcher("/pages/cotacaoConsultar.jsp");
             
-            tipoMoeda.setNome(request.getParameter("txtNome"));
-            tipoMoeda.setSimbolo(request.getParameter("txtSimbolo"));
-
-            daoTipoMoeda.incluir(tipoMoeda);
-
-            msg = "Inclusão realizada com sucesso";
-
         } catch (Exception exception) {
-            msg = "Erro ao incluir o tipo de moeda";
+            msg = exception.getMessage();
+            view = request.getRequestDispatcher("pages/status.jsp");
+
         } finally {
             request.setAttribute("mensagem", msg);
-            view = request.getRequestDispatcher("pages/status.jsp");
+
             view.forward(request, response);
         }
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

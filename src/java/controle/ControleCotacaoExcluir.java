@@ -6,19 +6,20 @@
 package controle;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.TipoMoeda;
-import persistencia.DAOTipoMoeda;
+import modelo.Cotacao;
+import persistencia.DAOCotacao;
 
 /**
  *
  * @author Deivis
  */
-public class ControleTipoMoedaIncluir extends HttpServlet {
+public class ControleCotacaoExcluir extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,31 +33,28 @@ public class ControleTipoMoedaIncluir extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-        DAOTipoMoeda daoTipoMoeda = null;
-        TipoMoeda tipoMoeda = null;
+        DAOCotacao daoCotacao = null;
+        Cotacao Cotacao = null;
         RequestDispatcher view = null;
         String msg = null;
 
         try {
-            daoTipoMoeda = new DAOTipoMoeda();
-            tipoMoeda = new TipoMoeda();
+            daoCotacao = new DAOCotacao();
+            Cotacao = new Cotacao();
+
+            Cotacao.setId(Integer.parseInt(request.getParameter("hdnId")));
             
-            tipoMoeda.setNome(request.getParameter("txtNome"));
-            tipoMoeda.setSimbolo(request.getParameter("txtSimbolo"));
+            daoCotacao.excluir(Cotacao);
 
-            daoTipoMoeda.incluir(tipoMoeda);
-
-            msg = "Inclusão realizada com sucesso";
+            msg = "Exclusão realizada com sucesso";
 
         } catch (Exception exception) {
-            msg = "Erro ao incluir o tipo de moeda";
+            msg = "Erro na Exclusão";
         } finally {
             request.setAttribute("mensagem", msg);
             view = request.getRequestDispatcher("pages/status.jsp");
             view.forward(request, response);
         }
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

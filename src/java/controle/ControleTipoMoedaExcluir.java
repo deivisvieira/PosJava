@@ -17,7 +17,7 @@ import persistencia.DAOTipoMoeda;
 
 /**
  *
- * @author profoswaldo
+ * @author Deivis
  */
 public class ControleTipoMoedaExcluir extends HttpServlet {
 

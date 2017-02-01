@@ -28,15 +28,16 @@ public class Cotacao {
         return data;
     }
 
-    public void setData(DateTime data) {
-        this.data = data;
+    public void setData(String data) {
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        this.data = df.parse(data);
     }
 
     public Double getValor() {
         return valor;
     }
 
-    public void setValor(Double valor) {
-        this.valor = valor;
+    public void setValor(String valor) {
+        this.valor = Double.parseDouble(valor);
     }
 }

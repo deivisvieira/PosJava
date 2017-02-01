@@ -7,7 +7,7 @@ package modelo;
 
 /**
  *
- * @author profoswaldo
+ * @author Deivis
  */
 public class TipoMoeda {    
     private int id;
