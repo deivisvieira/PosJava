@@ -7,13 +7,13 @@ package controle;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Cotacao;
+import modelo.TipoMoeda;
 import persistencia.DAOCotacao;
 
 /**
@@ -44,8 +44,9 @@ public class ControleCotacaoConsultar extends HttpServlet {
             daoCotacao = new DAOCotacao();
             cotacao = new Cotacao();
 
-            cotacao.setNome(request.getParameter("txtNome"));
-            cotacao.setSimbolo(request.getParameter("txtSimbolo"));
+            cotacao.setTipoMoeda(new TipoMoeda(Integer.parseInt(request.getParameter("cbId"))));
+            cotacao.setData(request.getParameter("txtData"));
+            cotacao.setValor(request.getParameter("txtValor"));
 
             ArrayList<Cotacao> lista = daoCotacao.consultar(cotacao);
 

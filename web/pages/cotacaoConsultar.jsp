@@ -10,7 +10,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Sistema de Visualizaï¿½ï¿½o de Moedas</title>
+        <title>Sistema de Visualização de Moedas</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="/PosJava/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -43,7 +43,7 @@
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">CotaÃ§Ã£o</h1>
+                        <h1 class="page-header">Cotação</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -58,6 +58,10 @@
                                 <div class="row">
                                     <div class="form-group">
                                         <form action="/PosJava/controle.cotacao.consultar" method="POST">
+                                            <label for="tipomoeda">Selecione a Moeda:</label>
+                                            <select class="form-control" id="cbId" name="cbId">
+                                                <option value="1">Teste</option>
+                                            </select>                                            
                                             <label for="data">Digite a data:</label>
                                             <input class="form-control" type="text" name="txtData" value="" /><br/>
                                             <label for="valor">Digite o valor:</label>
@@ -77,7 +81,7 @@
                                 <thead>
                                     <tr role="row">
                                         <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 153px;">Nome</th>
-                                        <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 186px;">Sï¿½mbolo</th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 186px;">Cotação</th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 186px;"></th>
                                     </tr>
                                 </thead>

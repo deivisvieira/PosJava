@@ -32,6 +32,41 @@
         <servlet-name>ControleTipoMoedaConsultar</servlet-name>
         <url-pattern>/controle.tipomoeda.consultar</url-pattern>
     </servlet-mapping>
+    
+    
+    
+    <servlet>
+        <servlet-name>ControleCotacaoIncluir</servlet-name>
+        <servlet-class>controle.ControleCotacaoIncluir</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControleCotacaoExcluir</servlet-name>
+        <servlet-class>controle.ControleCotacaoExcluir</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControleCotacaoAlterar</servlet-name>
+        <servlet-class>controle.ControleCotacaoAlterar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControleCotacaoConsultar</servlet-name>
+        <servlet-class>controle.ControleCotacaoConsultar</servlet-class>
+    </servlet>    
+      <servlet-mapping>
+        <servlet-name>ControleCotacaoIncluir</servlet-name>
+        <url-pattern>/controle.cotacao.incluir</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControleCotacaoExcluir</servlet-name>
+        <url-pattern>/controle.cotacao.excluir</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControleCotacaoAlterar</servlet-name>
+        <url-pattern>/controle.cotacao.alterar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControleCotacaoConsultar</servlet-name>
+        <url-pattern>/controle.cotacao.consultar</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

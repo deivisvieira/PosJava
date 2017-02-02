@@ -33,8 +33,8 @@ public class DAOCotacao {
 
         pst = con.prepareStatement("insert into sql10156007.cotacao values(null, ?,?)");
         
-        pst.setString(1, cotacao.getData());
-        pst.setString(2, cotacao.getValor());
+        pst.setString(1, cotacao.getDataString());
+        pst.setString(2, cotacao.getValorString());
 
         pst.execute();
 
@@ -55,8 +55,8 @@ public class DAOCotacao {
     public void alterar(Cotacao cotacao) throws Exception {
         pst = con.prepareStatement("UPDATE sql10156007.cotacao SET data = ?, valor = ? WHERE id = ?");
         
-        pst.setString(1, cotacao.getData());
-        pst.setString(2, cotacao.getValor());
+        pst.setString(1, cotacao.getDataString());
+        pst.setString(2, cotacao.getValorString());
         pst.setInt(3, cotacao.getId());
 
         pst.execute();
@@ -67,8 +67,8 @@ public class DAOCotacao {
     public ArrayList<Cotacao> consultar(Cotacao cotacao) throws Exception {
         Cotacao temp = null;
         ArrayList<Cotacao> list = new ArrayList<>();
-        pst = con.prepareStatement("SELECT * FROM sql10156007.cotacao c inner join sql10156007.tipo_moeda tm
-         WHERE tm.nome like '%"+cotacao.getNome()+"%' and data ="+cotacao.getData());
+        pst = con.prepareStatement("SELECT * FROM sql10156007.cotacao c inner join sql10156007.tipo_moeda tm "
+         +" WHERE tm.nome like '%"+cotacao.getTipoMoeda().getNome()+"%' and data ="+cotacao.getData());
                 
         rs = pst.executeQuery();
 

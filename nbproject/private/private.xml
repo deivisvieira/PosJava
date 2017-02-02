@@ -3,11 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Deivis/PosJava/src/java/modelo/Cotacao.java</file>
-            <file>file:/C:/Users/Deivis/PosJava/src/java/controle/ControleTipoMoedaIncluir.java</file>
-            <file>file:/C:/Users/Deivis/PosJava/src/java/controle/ControleTipoMoedaAlterar.java</file>
-            <file>file:/C:/Users/Deivis/PosJava/src/java/modelo/TipoMoeda.java</file>
-            <file>file:/C:/Users/Deivis/PosJava/src/java/persistencia/DAOTipoMoeda.java</file>
+            <file>file:/C:/RepositoriosGIT/PosJava/src/java/modelo/Cotacao.java</file>
+            <file>file:/C:/RepositoriosGIT/PosJava/src/java/modelo/TipoMoeda.java</file>
+            <file>file:/C:/RepositoriosGIT/PosJava/src/java/persistencia/DAOTipoMoeda.java</file>
+            <file>file:/C:/RepositoriosGIT/PosJava/src/java/controle/ControleCotacaoConsultar.java</file>
+            <file>file:/C:/RepositoriosGIT/PosJava/src/java/persistencia/DAOCotacao.java</file>
         </group>
     </open-files>
 </project-private>

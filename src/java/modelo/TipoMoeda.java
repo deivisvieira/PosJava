@@ -14,6 +14,13 @@ public class TipoMoeda {
     private String nome;
     private String simbolo;    
     
+    public TipoMoeda(int id){
+        this.id=id;
+    }
+    
+    public TipoMoeda(){        
+    }
+    
     public int getId() {
         return id;
     }

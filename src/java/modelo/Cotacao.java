@@ -5,7 +5,10 @@
  */
 package modelo;
 
-import org.apache.derby.client.am.DateTime;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
@@ -13,8 +16,17 @@ import org.apache.derby.client.am.DateTime;
  */
 public class Cotacao {
     private int id;
-    private DateTime data;
-    private Double valor;    
+    private Date data;
+    private Double valor;
+    private TipoMoeda tipoMoeda;
+
+    public TipoMoeda getTipoMoeda() {
+        return tipoMoeda;
+    }
+
+    public void setTipoMoeda(TipoMoeda tipoMoeda) {
+        this.tipoMoeda = tipoMoeda;
+    }
 
     public int getId() {
         return id;
@@ -24,11 +36,15 @@ public class Cotacao {
         this.id = id;
     }
 
-    public DateTime getData() {
+    public Date getData() {
         return data;
     }
+    
+    public String getDataString() {
+        return data.toString();
+    }
 
-    public void setData(String data) {
+    public void setData(String data) throws ParseException {
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         this.data = df.parse(data);
     }
@@ -37,6 +53,10 @@ public class Cotacao {
         return valor;
     }
 
+    public String getValorString(){
+        return valor.toString();
+    }
+    
     public void setValor(String valor) {
         this.valor = Double.parseDouble(valor);
     }
