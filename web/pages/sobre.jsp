@@ -101,13 +101,13 @@
                                                     <strong>Desenvolvedor:</strong> Deivis Queirolo Vieira                                                    
                                                 </li>
                                                 <li>
-                                                    <strong>Cargo:</strong> Arquiteto de Sistemas
-                                                </li>
-                                                <li>
                                                     <strong>Idade:</strong> 29
                                                 </li>
                                                 <li>
                                                     <strong>Disciplina:</strong> Programação Orientada a Objetos
+                                                </li>
+                                                <li>
+                                                    <strong>Pequeno Resumo:</strong> Atualmente atua como Arquiteto de Sistemas .NET na Tivit, com cerca de 9 anos de experiência no ramo de desenvolvimento Web.
                                                 </li>
                                                 <li>
                                                     <strong>Observação: </strong> .NET é mais prático que Java, mas foi um bom desafio fazer esse mini projeto :-)
