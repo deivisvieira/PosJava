@@ -77,6 +77,7 @@
                                     <p>O sistema foi feito para receber cotações de moedas baseadas no Real. Pode-se incluir novos tipos de moedas para em seguida inserir as cotações.</p>
                                     <p>Como todo sistema corporativo que se preze, os dados informados são apresentados de forma analítica para o usuário final. Em nosso caso, um resumo de últimas cotações e um gráfico comparativo.</p>
                                     <p>O intuito desse sistema foi apenas explorar um pouco do que foi lecionado em classe, integrados a conceitos que utilizo no meu dia a dia e adaptando ao mundo real.</p>
+                                    <p>Tive alguns problemas com o banco derby, então optei por uma versão simples e grátis do MySql. Infelizmente, apos alguns acessos o servidor veta qualquer novo acesso por alguns minutos, devido ao limite da conta gratuita.</p>
                                     <p>Obrigado pela paciência e peço desculpas pela falta de 'acabamento' em parte do sistema.</p>
                                     </br>
                                     <p><strong>Deivis.</strong></p>

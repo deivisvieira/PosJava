@@ -159,11 +159,11 @@ public class DAOCotacao {
         ArrayList<TipoMoeda> listaMoeda = daoTm.listar();
         int contador = 0;
         
-        strSql = "SELECT c.data,  ";
+        strSql = "SELECT DATE_FORMAT(c.data,\"%d/%m/%Y\") as data,  ";
         
         for (TipoMoeda tm : listaMoeda){
             contador++;
-            strSql += " MAX(IF(`tipo_moeda` = "+tm.getId()+",valor,0)) AS '"+tm.getNome()+"'";
+            strSql += " MAX(IF(`tipo_moeda` = "+tm.getId()+",cast(valor as char(6)),0)) AS '"+tm.getId()+"'";
             if (contador<listaMoeda.size()){
                 strSql+=",";
             }

@@ -66,8 +66,8 @@
                                 <div class="col-lg-8">
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
-                                            <i class="fa fa-bar-chart-o fa-fw"></i> Gráfico Cotação X Tempo
-
+                                            <i class="fa fa-bar-chart-o fa-fw"></i> <strong>Gráfico Cotação X Tempo</strong>
+                                            <p>Para um melhor desempenho do gráfico, recomenda-se que haja cotações de todas as moedas para todos os dias já cadastrados.</p>
                                         </div>
                                         <!-- /.panel-heading -->
                                         <div class="panel-body">
