@@ -57,11 +57,13 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="form-group">
-                                        <form action="/PosJava/controle.cotacao.consultar" method="POST">
+                                        <form action="/PosJava/controle.cotacao.consultar" method="POST">                                            
                                             <label for="tipomoeda">Selecione a Moeda:</label>
                                             <select class="form-control" id="cbId" name="cbId">
-                                                <option value="1">Teste</option>
-                                            </select>                                            
+                                                <c:forEach var="item" items="${moeda.items}">
+                                                    <option>${item}</option>
+                                                </c:forEach>
+                                            </select>                                                                             
                                             <label for="data">Digite a data:</label>
                                             <input class="form-control" type="text" name="txtData" value="" /><br/>
                                             <label for="valor">Digite o valor:</label>
@@ -119,7 +121,8 @@
 
         <!-- Custom Theme JavaScript -->
         <script src="/PosJava/dist/js/sb-admin-2.js"></script>
-
+        <script src="Scripts/cotacao.js"></script>
+        
     </body>
 
 </html>

@@ -83,5 +83,24 @@ public class DAOTipoMoeda {
 
         return list;
     }
+    
+        public ArrayList<TipoMoeda> listar() throws Exception {
+        TipoMoeda temp = null;
+        ArrayList<TipoMoeda> list = new ArrayList<>();
+        pst = con.prepareStatement("SELECT * FROM sql10156007.tipo_moeda ORDER BY nome");                
+        rs = pst.executeQuery();
+
+        while (rs.next()) {
+            temp = new TipoMoeda();
+
+            temp.setId(rs.getInt(1));
+            temp.setNome(rs.getString(2));
+            temp.setSimbolo(rs.getString(3)); 
+            list.add(temp);
+        }
+        pst.close();
+
+        return list;
+    }
 
 }

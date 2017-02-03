@@ -15,8 +15,12 @@
     <servlet>
         <servlet-name>ControleTipoMoedaConsultar</servlet-name>
         <servlet-class>controle.ControleTipoMoedaConsultar</servlet-class>
-    </servlet>    
-      <servlet-mapping>
+    </servlet>
+    <servlet>
+        <servlet-name>ControleTipoMoedaListar</servlet-name>
+        <servlet-class>controle.ControleTipoMoedaListar</servlet-class>
+    </servlet>
+    <servlet-mapping>
         <servlet-name>ControleTipoMoedaIncluir</servlet-name>
         <url-pattern>/controle.tipomoeda.incluir</url-pattern>
     </servlet-mapping>
@@ -32,9 +36,10 @@
         <servlet-name>ControleTipoMoedaConsultar</servlet-name>
         <url-pattern>/controle.tipomoeda.consultar</url-pattern>
     </servlet-mapping>
-    
-    
-    
+    <servlet-mapping>
+        <servlet-name>ControleTipoMoedaListar</servlet-name>
+        <url-pattern>/controle.tipomoeda.listar</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>ControleCotacaoIncluir</servlet-name>
         <servlet-class>controle.ControleCotacaoIncluir</servlet-class>
@@ -50,8 +55,8 @@
     <servlet>
         <servlet-name>ControleCotacaoConsultar</servlet-name>
         <servlet-class>controle.ControleCotacaoConsultar</servlet-class>
-    </servlet>    
-      <servlet-mapping>
+    </servlet>
+    <servlet-mapping>
         <servlet-name>ControleCotacaoIncluir</servlet-name>
         <url-pattern>/controle.cotacao.incluir</url-pattern>
     </servlet-mapping>
