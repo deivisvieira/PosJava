@@ -34,7 +34,6 @@
     </head>
 
     <body>
-
         <div id="wrapper">
 
             <!-- Navigation -->
@@ -102,20 +101,7 @@
             <!-- /#page-wrapper -->
 
         </div>
-        <!-- /#wrapper -->
-
-        <!-- jQuery -->
-        <script src="/PosJava/vendor/jquery/jquery.min.js"></script>
-
-        <!-- Bootstrap Core JavaScript -->
-        <script src="/PosJava/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-        <!-- Metis Menu Plugin JavaScript -->
-        <script src="/PosJava/vendor/metisMenu/metisMenu.min.js"></script>
-
-        <!-- Custom Theme JavaScript -->
-        <script src="/PosJava/dist/js/sb-admin-2.js"></script>
-
+        <!-- /#wrapper -->  
     </body>
 
 </html>

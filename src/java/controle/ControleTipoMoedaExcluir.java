@@ -52,7 +52,7 @@ public class ControleTipoMoedaExcluir extends HttpServlet {
             msg = "Erro na Exclusão";
         } finally {
             request.setAttribute("mensagem", msg);
-            view = request.getRequestDispatcher("pages/status.jsp");
+            view = request.getRequestDispatcher("/pages/tipoMoedaConsultar.jsp");
             view.forward(request, response);
         }
     }
