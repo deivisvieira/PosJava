@@ -4,6 +4,7 @@
     Author     : Deivis
 --%>
 <input type="hidden" name="hdnMsg" id="hdnMsg" value="${mensagem}">
+<input type="hidden" name="hdnTipoMsg" id="hdnTipoMsg" value="${tipoMsg}">
 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

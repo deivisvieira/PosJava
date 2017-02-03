@@ -38,6 +38,7 @@ public class ControleCotacaoIncluir extends HttpServlet {
         Cotacao Cotacao = null;
         RequestDispatcher view = null;
         String msg = null;
+        String tipoMsg = "success";
 
         try {
             daoCotacao = new DAOCotacao();
@@ -53,9 +54,11 @@ public class ControleCotacaoIncluir extends HttpServlet {
 
         } catch (Exception exception) {
             msg = "Erro ao incluir a cotação";
+            tipoMsg = "danger";
         } finally {
             request.setAttribute("mensagem", msg);
-            view = request.getRequestDispatcher("pages/status.jsp");
+            request.setAttribute("tipoMsg", tipoMsg);
+            view = request.getRequestDispatcher("/pages/cotacaoIncluir.jsp");
             view.forward(request, response);
         }
 

@@ -39,6 +39,7 @@ public class ControleTipoMoedaConsultar extends HttpServlet {
         TipoMoeda tipoMoeda = null;
         RequestDispatcher view = null;
         String msg = null;
+        String tipoMsg = "success";
 
         try {
             daoTipoMoeda = new DAOTipoMoeda();
@@ -49,19 +50,15 @@ public class ControleTipoMoedaConsultar extends HttpServlet {
 
             ArrayList<TipoMoeda> lista = daoTipoMoeda.consultar(tipoMoeda);
 
-            request.setAttribute("al", lista);
-
-            msg = "Consulta realizada com sucesso";
-
-            view = request.getRequestDispatcher("/pages/tipoMoedaConsultar.jsp");
-            
+            request.setAttribute("al", lista);                                    
         } catch (Exception exception) {
-            msg = exception.getMessage();
-            view = request.getRequestDispatcher("pages/status.jsp");
+            tipoMsg = "danger";
+            msg = exception.getMessage();            
 
         } finally {
+            view = request.getRequestDispatcher("/pages/tipoMoedaConsultar.jsp");
             request.setAttribute("mensagem", msg);
-
+            request.setAttribute("tipoMsg", tipoMsg);
             view.forward(request, response);
         }
     }

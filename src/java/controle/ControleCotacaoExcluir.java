@@ -37,6 +37,7 @@ public class ControleCotacaoExcluir extends HttpServlet {
         Cotacao Cotacao = null;
         RequestDispatcher view = null;
         String msg = null;
+        String tipoMsg = "success";
 
         try {
             daoCotacao = new DAOCotacao();
@@ -49,10 +50,12 @@ public class ControleCotacaoExcluir extends HttpServlet {
             msg = "Exclusão realizada com sucesso";
 
         } catch (Exception exception) {
+            tipoMsg = "danger";
             msg = "Erro na Exclusão";
         } finally {
             request.setAttribute("mensagem", msg);
-            view = request.getRequestDispatcher("pages/status.jsp");
+            request.setAttribute("tipoMsg", tipoMsg);
+            view = request.getRequestDispatcher("/pages/cotacaoConsultar.jsp");
             view.forward(request, response);
         }
     }

@@ -40,6 +40,7 @@ public class ControleTipoMoedaListar extends HttpServlet {
         TipoMoeda tipoMoeda = null;
         RequestDispatcher view = null;
         String msg = null;
+        String tipoMsg = "success";
         PrintWriter out = response.getWriter();
         
         try {
@@ -55,11 +56,13 @@ public class ControleTipoMoedaListar extends HttpServlet {
             out.println(jsonA);
 
         } catch (Exception exception) {
+            tipoMsg = "danger";
             msg = exception.getMessage();
-            view = request.getRequestDispatcher("pages/status.jsp");
+            view = request.getRequestDispatcher("/index.html");
 
         } finally {
-            request.setAttribute("mensagem", msg);            
+            request.setAttribute("mensagem", msg);       
+            request.setAttribute("tipoMsg", tipoMsg);
         }
     }
 

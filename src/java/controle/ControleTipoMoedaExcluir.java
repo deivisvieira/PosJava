@@ -37,7 +37,8 @@ public class ControleTipoMoedaExcluir extends HttpServlet {
         TipoMoeda tipoMoeda = null;
         RequestDispatcher view = null;
         String msg = null;
-
+        String tipoMsg = "success";
+        
         try {
             daoTipoMoeda = new DAOTipoMoeda();
             tipoMoeda = new TipoMoeda();
@@ -50,8 +51,10 @@ public class ControleTipoMoedaExcluir extends HttpServlet {
 
         } catch (Exception exception) {
             msg = "Erro na Exclusão";
+            tipoMsg = "danger";
         } finally {
             request.setAttribute("mensagem", msg);
+            request.setAttribute("tipoMsg", tipoMsg);
             view = request.getRequestDispatcher("/pages/tipoMoedaConsultar.jsp");
             view.forward(request, response);
         }

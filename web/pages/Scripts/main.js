@@ -6,11 +6,10 @@
 
 $(document).ready(function () {
     if ($("#hdnMsg").val() != null && $("#hdnMsg").val() != "")
-    $.notify({
-        icon: 'glyphicon glyphicon-ok',
+    $.notify({        
         message: $("#hdnMsg").val()
     }, {        
-        type: 'success'
+        type: $("#hdnTipoMsg").val()
     });
     
     $("#hdnMsg").val("");

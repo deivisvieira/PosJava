@@ -41,6 +41,7 @@ public class ControleCotacaoConsultar extends HttpServlet {
         Cotacao cotacao = null;        
         RequestDispatcher view = null;
         String msg = null;
+        String tipoMsg = "success";
 
         try {
             daoCotacao = new DAOCotacao();
@@ -55,16 +56,15 @@ public class ControleCotacaoConsultar extends HttpServlet {
 
             request.setAttribute("al", lista);
 
-            msg = "Consulta realizada com sucesso";
-
-            view = request.getRequestDispatcher("/pages/cotacaoConsultar.jsp");
+            msg = "Consulta realizada com sucesso";            
             
         } catch (Exception exception) {
-            msg = exception.getMessage();
-            view = request.getRequestDispatcher("pages/status.jsp");
-
+            tipoMsg = "danger";            
+            msg = exception.getMessage();            
         } finally {
+            view = request.getRequestDispatcher("/pages/cotacaoConsultar.jsp");
             request.setAttribute("mensagem", msg);
+            request.setAttribute("tipoMsg", tipoMsg);
 
             view.forward(request, response);
         }

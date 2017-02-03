@@ -37,11 +37,12 @@ public class ControleTipoMoedaIncluir extends HttpServlet {
         TipoMoeda tipoMoeda = null;
         RequestDispatcher view = null;
         String msg = null;
+        String tipoMsg = "success";
 
         try {
             daoTipoMoeda = new DAOTipoMoeda();
             tipoMoeda = new TipoMoeda();
-            
+
             tipoMoeda.setNome(request.getParameter("txtNome"));
             tipoMoeda.setSimbolo(request.getParameter("txtSimbolo"));
 
@@ -50,10 +51,12 @@ public class ControleTipoMoedaIncluir extends HttpServlet {
             msg = "Inclusão realizada com sucesso";
 
         } catch (Exception exception) {
+            tipoMsg = "danger";
             msg = "Erro ao incluir o tipo de moeda";
         } finally {
             request.setAttribute("mensagem", msg);
-            view = request.getRequestDispatcher("pages/status.jsp");
+            request.setAttribute("tipoMsg", tipoMsg);
+            view = request.getRequestDispatcher("/pages/tipoMoedaIncluir.jsp");
             view.forward(request, response);
         }
 
