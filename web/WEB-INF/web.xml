@@ -60,6 +60,11 @@
         <servlet-name>ControleCotacaoUltimaCotacao</servlet-name>
         <servlet-class>controle.ControleCotacaoUltimaCotacao</servlet-class>
     </servlet>
+    
+    <servlet>
+        <servlet-name>ControleCotacaoMorris</servlet-name>
+        <servlet-class>controle.ControleCotacaoMorris</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControleCotacaoIncluir</servlet-name>
         <url-pattern>/controle.cotacao.incluir</url-pattern>
@@ -79,6 +84,10 @@
     <servlet-mapping>
         <servlet-name>ControleCotacaoUltimaCotacao</servlet-name>
         <url-pattern>/controle.cotacao.ultimacotacao</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControleCotacaoMorris</servlet-name>
+        <url-pattern>/controle.cotacao.morris</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

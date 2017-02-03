@@ -5,14 +5,21 @@
  */
 package persistencia;
 
+import com.google.gson.Gson;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import modelo.Cotacao;
+import modelo.Morris;
 import modelo.TipoMoeda;
+import org.apache.commons.dbutils.DbUtils;
+import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.MapListHandler;
 
 /**
  *
@@ -144,4 +151,42 @@ public class DAOCotacao {
         return list;
     }
 
+    public String morris() throws Exception {
+        Morris temp = null;        
+        ArrayList<Morris> list = new ArrayList<>();
+        String strSql = new String();
+        DAOTipoMoeda daoTm = new DAOTipoMoeda();
+        ArrayList<TipoMoeda> listaMoeda = daoTm.listar();
+        int contador = 0;
+        
+        strSql = "SELECT c.data,  ";
+        
+        for (TipoMoeda tm : listaMoeda){
+            contador++;
+            strSql += " MAX(IF(`tipo_moeda` = "+tm.getId()+",valor,0)) AS '"+tm.getNome()+"'";
+            if (contador<listaMoeda.size()){
+                strSql+=",";
+            }
+        }        
+        
+        strSql += " FROM sql10156007.cotacao c inner join sql10156007.tipo_moeda tm GROUP   BY c.data";
+        
+        String saida = resultSetToJson(con, strSql);
+
+
+        return saida;
+    }
+    
+    public static String resultSetToJson(Connection connection, String query) {
+        List<Map<String, Object>> listOfMaps = null;
+        try {
+            QueryRunner queryRunner = new QueryRunner();
+            listOfMaps = queryRunner.query(connection, query, new MapListHandler());
+        } catch (SQLException se) {
+            throw new RuntimeException("Couldn't query the database.", se);
+        } finally {
+            DbUtils.closeQuietly(connection);
+        }
+        return new Gson().toJson(listOfMaps);
+    }
 }

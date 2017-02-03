@@ -9,37 +9,37 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <head>
+    <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-    <title>Sistema de Visualização de Moedas</title>
+        <title>Sistema de Visualização de Moedas</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="/PosJava/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Bootstrap Core CSS -->
+        <link href="/PosJava/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- MetisMenu CSS -->
-    <link href="/PosJava/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+        <!-- MetisMenu CSS -->
+        <link href="/PosJava/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="/PosJava/dist/css/sb-admin-2.css" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link href="/PosJava/dist/css/sb-admin-2.css" rel="stylesheet">
 
-    <!-- Custom Fonts -->
-    <link href="/PosJava/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <!-- Custom Fonts -->
+        <link href="/PosJava/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
 
-</head>
     </head>
+</head>
 <body>
 
     <div id="wrapper">
@@ -65,45 +65,31 @@
                             <div class="row">
                                 <div class="col-lg-8">
                                     <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Gráfico Cotação X Tempo
-                            <div class="pull-right">
-                                <div class="btn-group">
-                                    <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a href="#">Action</a>
-                                        </li>
-                                        <li><a href="#">Another action</a>
-                                        </li>
-                                        <li><a href="#">Something else here</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Separated link</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div id="morris-area-chart"></div>
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>                                    
+                                        <div class="panel-heading">
+                                            <i class="fa fa-bar-chart-o fa-fw"></i> Gráfico Cotação X Tempo
+
+                                        </div>
+                                        <!-- /.panel-heading -->
+                                        <div class="panel-body">
+                                            <div id="morris-area-chart"></div>
+                                        </div>
+                                        <!-- /.panel-body -->
+                                    </div>                                    
                                 </div>
                                 <div class="col-lg-4">
-                                                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bell fa-fw"></i> Últimas Cotações
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="list-group">  
-                            </div>
-                            <!-- /.list-group -->                           
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                            </div>                            </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <i class="fa fa-bell fa-fw"></i> Últimas Cotações
+                                        </div>
+                                        <!-- /.panel-heading -->
+                                        <div class="panel-body">
+                                            <div class="list-group">  
+                                            </div>
+                                            <!-- /.list-group -->                           
+                                        </div>
+                                        <!-- /.panel-body -->
+                                    </div>
+                                </div>                            </div>
                             <!-- /.row (nested) -->
                         </div>
                         <!-- /.panel-body -->
@@ -120,7 +106,8 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    
+
 </body>
 </html>
- <script src="/PosJava/pages/Scripts/index.js"></script>
+<script src="/PosJava/js/bootstrap-notify.min.js"></script>
+<script src="/PosJava/pages/Scripts/index.js"></script>

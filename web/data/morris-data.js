@@ -106,10 +106,13 @@ $(function() {
             y: '2012',
             a: 100,
             b: 90
+        },{
+            y: '2013',
+            a: 1000,
+            b: 909
         }],
         xkey: 'y',
-        ykeys: ['a', 'b'],
-        labels: ['Series A', 'Series B'],
+        ykeys: ['a', 'b'],        
         hideHover: 'auto',
         resize: true
     });

@@ -68,8 +68,7 @@
 
     <!-- Morris Charts JavaScript -->
     <script src="/PosJava/vendor/raphael/raphael.min.js"></script>
-    <script src="/PosJava/vendor/morrisjs/morris.min.js"></script>
-    <script src="/PosJava/data/morris-data.js"></script>
+    <script src="/PosJava/vendor/morrisjs/morris.min.js"></script>    
     
     <!-- Custom Theme JavaScript -->
     <script src="/PosJava/dist/js/sb-admin-2.js"></script>
