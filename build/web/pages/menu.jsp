@@ -50,7 +50,7 @@
                     <!-- /.nav-second-level -->
                 </li>
                 <li>
-                    <a href="sobre.html"><i class="fa fa-info-circle fa-fw"></i> Sobre</a>
+                    <a href="sobre.jsp"><i class="fa fa-info-circle fa-fw"></i> Sobre</a>
                 </li> 
             </ul>
         </div>
