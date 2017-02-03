@@ -60,6 +60,7 @@
                                         <form action="/PosJava/controle.cotacao.consultar" method="POST">                                            
                                             <label for="tipomoeda">Selecione a Moeda:</label>
                                             <select class="form-control" id="cbId" name="cbId">
+                                                <option value ="0">Todas</option>
                                             </select>                                                                             
                                             <label for="data">Digite a data:</label>
                                             <input class="form-control" type="text" name="txtData" value="" /><br/>
@@ -80,7 +81,7 @@
                                 <thead>
                                     <tr role="row">
                                         <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 153px;">Nome</th>
-                                        <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 186px;">Cotação</th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 186px;">Símbolo</th>
                                         <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 153px;">Valor</th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 186px;">Data</th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 186px;"></th>
@@ -91,7 +92,7 @@
                                         <td class="sorting_1">${item.tipoMoeda.nome}</td>
                                         <td>${item.tipoMoeda.simbolo}</td>
                                         <td class="sorting_1">${item.valor}</td>
-                                        <td>${item.data}</td>
+                                        <td>${item.dataStringBr}</td>
                                         <td>
                                             <form action="/PosJava/controle.cotacao.excluir" method="POST">
                                                 <input type="hidden" name="hdnId" value="${item.id}"/>

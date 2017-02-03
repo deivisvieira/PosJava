@@ -48,7 +48,15 @@ public class Cotacao {
         } else {
             return null;
         }
+    }
 
+    public String getDataStringBr() {
+        if (this.data != null) {
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+            return df.format(this.data);
+        } else {
+            return null;
+        }
     }
 
     public void setData(String data) throws ParseException {
@@ -60,6 +68,15 @@ public class Cotacao {
         }
     }
     
+    public void setDataBr(String data) throws ParseException {
+        if (!"".equals(data)) {
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+            this.data = df.parse(data);
+        } else {
+            this.data = null;
+        }
+    }
+
     public void setDataString(String data) throws ParseException {
         if (!"".equals(data)) {
             DateFormat df = new SimpleDateFormat("dd/MM/yyyy");

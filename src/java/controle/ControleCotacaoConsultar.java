@@ -48,7 +48,7 @@ public class ControleCotacaoConsultar extends HttpServlet {
             cotacao = new Cotacao();
 
             cotacao.setTipoMoeda(daoTipoMoeda.get(Integer.parseInt(request.getParameter("cbId"))));
-            cotacao.setData(request.getParameter("txtData"));
+            cotacao.setDataBr(request.getParameter("txtData"));
             cotacao.setValor(request.getParameter("txtValor"));
 
             ArrayList<Cotacao> lista = daoCotacao.consultar(cotacao);

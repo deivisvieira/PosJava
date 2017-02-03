@@ -112,13 +112,13 @@ public class DAOTipoMoeda {
 
         rs = pst.executeQuery();
 
-        while (rs.next()){
+        while (rs.next()) {
             tipoMoeda.setId(rs.getInt(1));
             tipoMoeda.setNome(rs.getString(2));
             tipoMoeda.setSimbolo(rs.getString(3));
         }
         pst.close();
-        
+
         return tipoMoeda;
     }
 

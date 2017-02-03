@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import modelo.Cotacao;
+import modelo.TipoMoeda;
 
 /**
  *
@@ -23,7 +24,9 @@ public class DAOCotacao {
     private PreparedStatement pst = null;
     private ResultSet rs = null;
 
-    public DAOCotacao() throws Exception {jdbc:mysql://sql10.freemysqlhosting.net:3306/sql10156007?zeroDateTimeBehavior=convertToNull [sql10156007 em Esquema default]
+    public DAOCotacao() throws Exception {
+        jdbc:
+        mysql://sql10.freemysqlhosting.net:3306/sql10156007?zeroDateTimeBehavior=convertToNull [sql10156007 em Esquema default]
         Class.forName("com.mysql.jdbc.Driver").newInstance();
         con = DriverManager.getConnection("jdbc:mysql://sql10.freemysqlhosting.net:3306/sql10156007?zeroDateTimeBehavior=convertToNull", "sql10156007", "AyCXbQiS9J");
 
@@ -32,7 +35,7 @@ public class DAOCotacao {
     public void incluir(Cotacao cotacao) throws Exception {
 
         pst = con.prepareStatement("insert into sql10156007.cotacao values(null, ?,?,?)");
-        
+
         pst.setString(1, cotacao.getDataString());
         pst.setString(2, cotacao.getValorString());
         pst.setInt(3, cotacao.getTipoMoeda().getId());
@@ -46,7 +49,7 @@ public class DAOCotacao {
     public void excluir(Cotacao cotacao) throws Exception {
         pst = con.prepareStatement("DELETE FROM sql10156007.cotacao WHERE id = ?");
 
-        pst.setInt(1, cotacao.getId());        
+        pst.setInt(1, cotacao.getId());
 
         pst.execute();
 
@@ -55,7 +58,7 @@ public class DAOCotacao {
 
     public void alterar(Cotacao cotacao) throws Exception {
         pst = con.prepareStatement("UPDATE sql10156007.cotacao SET data = ?, valor = ? WHERE id = ?");
-        
+
         pst.setString(1, cotacao.getDataString());
         pst.setString(2, cotacao.getValorString());
         pst.setInt(3, cotacao.getId());
@@ -67,15 +70,24 @@ public class DAOCotacao {
 
     public ArrayList<Cotacao> consultar(Cotacao cotacao) throws Exception {
         Cotacao temp = null;
+        TipoMoeda tipoMoedaTemp = null;
         ArrayList<Cotacao> list = new ArrayList<>();
         String strSql = new String();
-        strSql = "SELECT * FROM sql10156007.cotacao c inner join sql10156007.tipo_moeda tm WHERE tm.id = '"+cotacao.getTipoMoeda().getId()+"'";
-        if (cotacao.getDataString()!= null ){
-            strSql+=" and data = '"+cotacao.getDataString() + "'";
+        strSql = "SELECT * FROM sql10156007.cotacao c inner join sql10156007.tipo_moeda tm on c.tipo_moeda=tm.id WHERE 1=1";
+        if (cotacao.getTipoMoeda().getId() != 0) {
+            strSql += " tipo_moeda ='" + cotacao.getTipoMoeda().getId() + "'";
         }
-        
-        pst = con.prepareStatement(strSql);                
-                
+
+        if (cotacao.getDataString() != null) {
+            strSql += " and data = '" + cotacao.getDataString() + "'";
+        }
+
+        if (cotacao.getValor() != null) {            
+            strSql += " and valor = " + cotacao.getValorString() + "";
+        }
+
+        pst = con.prepareStatement(strSql);
+
         rs = pst.executeQuery();
 
         while (rs.next()) {
@@ -83,8 +95,14 @@ public class DAOCotacao {
 
             temp.setId(rs.getInt(1));
             temp.setData(rs.getString(2));
-            temp.setValor(rs.getString(3)); 
-            temp.setTipoMoeda(cotacao.getTipoMoeda());
+            temp.setValor(rs.getString(3));
+
+            tipoMoedaTemp = new TipoMoeda();
+            tipoMoedaTemp.setId(rs.getInt(5));
+            tipoMoedaTemp.setNome(rs.getString(6));
+            tipoMoedaTemp.setSimbolo(rs.getString(7));
+
+            temp.setTipoMoeda(tipoMoedaTemp);
             list.add(temp);
         }
         pst.close();
