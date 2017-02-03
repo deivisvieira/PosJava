@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import modelo.Cotacao;
 import modelo.TipoMoeda;
 import persistencia.DAOCotacao;
+import persistencia.DAOTipoMoeda;
 
 /**
  *
@@ -36,15 +37,17 @@ public class ControleCotacaoConsultar extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         DAOCotacao daoCotacao = null;
-        Cotacao cotacao = null;
+        DAOTipoMoeda daoTipoMoeda = null;
+        Cotacao cotacao = null;        
         RequestDispatcher view = null;
         String msg = null;
 
         try {
             daoCotacao = new DAOCotacao();
+            daoTipoMoeda = new DAOTipoMoeda();
             cotacao = new Cotacao();
 
-            cotacao.setTipoMoeda(new TipoMoeda(Integer.parseInt(request.getParameter("cbId"))));
+            cotacao.setTipoMoeda(daoTipoMoeda.get(Integer.parseInt(request.getParameter("cbId"))));
             cotacao.setData(request.getParameter("txtData"));
             cotacao.setValor(request.getParameter("txtValor"));
 

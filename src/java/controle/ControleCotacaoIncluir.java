@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Cotacao;
+import modelo.TipoMoeda;
 import persistencia.DAOCotacao;
 
 /**
@@ -42,9 +43,10 @@ public class ControleCotacaoIncluir extends HttpServlet {
             daoCotacao = new DAOCotacao();
             Cotacao = new Cotacao();
             
-            Cotacao.setData(request.getParameter("txtData"));
+            Cotacao.setDataString(request.getParameter("txtData"));
             Cotacao.setValor(request.getParameter("txtValor"));
-
+            Cotacao.setTipoMoeda(new TipoMoeda(Integer.parseInt(request.getParameter("cbId"))));
+            
             daoCotacao.incluir(Cotacao);
 
             msg = "Inclusão realizada com sucesso";

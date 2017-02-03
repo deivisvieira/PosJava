@@ -15,6 +15,7 @@ import java.util.Date;
  * @author Deivis
  */
 public class Cotacao {
+
     private int id;
     private Date data;
     private Double valor;
@@ -39,25 +40,48 @@ public class Cotacao {
     public Date getData() {
         return data;
     }
-    
+
     public String getDataString() {
-        return data.toString();
+        if (this.data != null) {
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            return df.format(this.data);
+        } else {
+            return null;
+        }
+
     }
 
     public void setData(String data) throws ParseException {
-        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-        this.data = df.parse(data);
+        if (!"".equals(data)) {
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            this.data = df.parse(data);
+        } else {
+            this.data = null;
+        }
+    }
+    
+    public void setDataString(String data) throws ParseException {
+        if (!"".equals(data)) {
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+            this.data = df.parse(data);
+        } else {
+            this.data = null;
+        }
     }
 
     public Double getValor() {
         return valor;
     }
 
-    public String getValorString(){
+    public String getValorString() {
         return valor.toString();
     }
-    
+
     public void setValor(String valor) {
-        this.valor = Double.parseDouble(valor);
+        if (!"".equals(valor)) {
+            this.valor = Double.parseDouble(valor.replace(",", "."));
+        } else {
+            this.valor = null;
+        }
     }
 }

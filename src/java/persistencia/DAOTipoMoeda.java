@@ -23,7 +23,9 @@ public class DAOTipoMoeda {
     private PreparedStatement pst = null;
     private ResultSet rs = null;
 
-    public DAOTipoMoeda() throws Exception {jdbc:mysql://sql10.freemysqlhosting.net:3306/sql10156007?zeroDateTimeBehavior=convertToNull [sql10156007 em Esquema default]
+    public DAOTipoMoeda() throws Exception {
+        jdbc:
+        mysql://sql10.freemysqlhosting.net:3306/sql10156007?zeroDateTimeBehavior=convertToNull [sql10156007 em Esquema default]
         Class.forName("com.mysql.jdbc.Driver").newInstance();
         con = DriverManager.getConnection("jdbc:mysql://sql10.freemysqlhosting.net:3306/sql10156007?zeroDateTimeBehavior=convertToNull", "sql10156007", "AyCXbQiS9J");
 
@@ -32,7 +34,7 @@ public class DAOTipoMoeda {
     public void incluir(TipoMoeda tipoMoeda) throws Exception {
 
         pst = con.prepareStatement("insert into sql10156007.tipo_moeda values(null, ?,?)");
-        
+
         pst.setString(1, tipoMoeda.getNome());
         pst.setString(2, tipoMoeda.getSimbolo());
 
@@ -45,7 +47,7 @@ public class DAOTipoMoeda {
     public void excluir(TipoMoeda tipoMoeda) throws Exception {
         pst = con.prepareStatement("DELETE FROM sql10156007.tipo_moeda WHERE id = ?");
 
-        pst.setInt(1, tipoMoeda.getId());        
+        pst.setInt(1, tipoMoeda.getId());
 
         pst.execute();
 
@@ -54,7 +56,7 @@ public class DAOTipoMoeda {
 
     public void alterar(TipoMoeda tipoMoeda) throws Exception {
         pst = con.prepareStatement("UPDATE sql10156007.tipo_moeda SET nome = ?, simbolo = ? WHERE id = ?");
-        
+
         pst.setString(1, tipoMoeda.getNome());
         pst.setString(2, tipoMoeda.getSimbolo());
         pst.setInt(3, tipoMoeda.getId());
@@ -67,8 +69,8 @@ public class DAOTipoMoeda {
     public ArrayList<TipoMoeda> consultar(TipoMoeda tipoMoeda) throws Exception {
         TipoMoeda temp = null;
         ArrayList<TipoMoeda> list = new ArrayList<>();
-        pst = con.prepareStatement("SELECT * FROM sql10156007.tipo_moeda WHERE nome like '%"+tipoMoeda.getNome()+"%' and simbolo like '%"+tipoMoeda.getSimbolo()+"%'");
-                
+        pst = con.prepareStatement("SELECT * FROM sql10156007.tipo_moeda WHERE nome like '%" + tipoMoeda.getNome() + "%' and simbolo like '%" + tipoMoeda.getSimbolo() + "%'");
+
         rs = pst.executeQuery();
 
         while (rs.next()) {
@@ -76,18 +78,18 @@ public class DAOTipoMoeda {
 
             temp.setId(rs.getInt(1));
             temp.setNome(rs.getString(2));
-            temp.setSimbolo(rs.getString(3)); 
+            temp.setSimbolo(rs.getString(3));
             list.add(temp);
         }
         pst.close();
 
         return list;
     }
-    
-        public ArrayList<TipoMoeda> listar() throws Exception {
+
+    public ArrayList<TipoMoeda> listar() throws Exception {
         TipoMoeda temp = null;
         ArrayList<TipoMoeda> list = new ArrayList<>();
-        pst = con.prepareStatement("SELECT * FROM sql10156007.tipo_moeda ORDER BY nome");                
+        pst = con.prepareStatement("SELECT * FROM sql10156007.tipo_moeda ORDER BY nome");
         rs = pst.executeQuery();
 
         while (rs.next()) {
@@ -95,12 +97,29 @@ public class DAOTipoMoeda {
 
             temp.setId(rs.getInt(1));
             temp.setNome(rs.getString(2));
-            temp.setSimbolo(rs.getString(3)); 
+            temp.setSimbolo(rs.getString(3));
             list.add(temp);
         }
         pst.close();
 
         return list;
+    }
+
+    public TipoMoeda get(int id) throws Exception {
+        pst = con.prepareStatement("SELECT * FROM sql10156007.tipo_moeda WHERE id = ?");
+        TipoMoeda tipoMoeda = new TipoMoeda();
+        pst.setInt(1, id);
+
+        rs = pst.executeQuery();
+
+        while (rs.next()){
+            tipoMoeda.setId(rs.getInt(1));
+            tipoMoeda.setNome(rs.getString(2));
+            tipoMoeda.setSimbolo(rs.getString(3));
+        }
+        pst.close();
+        
+        return tipoMoeda;
     }
 
 }

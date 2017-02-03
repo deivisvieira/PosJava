@@ -12,7 +12,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Cont.Moeda v1.0</a>
+                <a class="navbar-brand" href="/PosJava/pages/index.html">Cont.Moeda v1.0</a>
             </div>
             <!-- /.navbar-header -->
             
@@ -28,10 +28,10 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Tipo de Moeda<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="tipoMoedaIncluir.jsp">Incluir</a>
+                                    <a href="/PosJava/pages/tipoMoedaIncluir.jsp">Incluir</a>
                                 </li>
                                 <li>
-                                    <a href="tipoMoedaConsultar.jsp">Consultar/Excluir</a>
+                                    <a href="/PosJava/pages/tipoMoedaConsultar.jsp">Consultar/Excluir</a>
                                 </li>                                
                             </ul>
                             <!-- /.nav-second-level -->
@@ -40,10 +40,10 @@
                             <a href="#"><i class="fa fa-money fa-fw"></i> Cotação<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="cotacaoIncluir.jsp">Incluir</a>
+                                    <a href="/PosJava/pages/cotacaoIncluir.jsp">Incluir</a>
                                 </li>
                                 <li>
-                                    <a href="cotacaoConsultar.jsp">Consultar/Excluir</a>
+                                    <a href="/PosJava/pages/cotacaoConsultar.jsp">Consultar/Excluir</a>
                                 </li>                                
                             </ul>
                             <!-- /.nav-second-level -->

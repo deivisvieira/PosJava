@@ -31,10 +31,11 @@ public class DAOCotacao {
 
     public void incluir(Cotacao cotacao) throws Exception {
 
-        pst = con.prepareStatement("insert into sql10156007.cotacao values(null, ?,?)");
+        pst = con.prepareStatement("insert into sql10156007.cotacao values(null, ?,?,?)");
         
         pst.setString(1, cotacao.getDataString());
         pst.setString(2, cotacao.getValorString());
+        pst.setInt(3, cotacao.getTipoMoeda().getId());
 
         pst.execute();
 
@@ -67,8 +68,13 @@ public class DAOCotacao {
     public ArrayList<Cotacao> consultar(Cotacao cotacao) throws Exception {
         Cotacao temp = null;
         ArrayList<Cotacao> list = new ArrayList<>();
-        pst = con.prepareStatement("SELECT * FROM sql10156007.cotacao c inner join sql10156007.tipo_moeda tm "
-         +" WHERE tm.nome like '%"+cotacao.getTipoMoeda().getNome()+"%' and data ="+cotacao.getData());
+        String strSql = new String();
+        strSql = "SELECT * FROM sql10156007.cotacao c inner join sql10156007.tipo_moeda tm WHERE tm.id = '"+cotacao.getTipoMoeda().getId()+"'";
+        if (cotacao.getDataString()!= null ){
+            strSql+=" and data = '"+cotacao.getDataString() + "'";
+        }
+        
+        pst = con.prepareStatement(strSql);                
                 
         rs = pst.executeQuery();
 
@@ -78,6 +84,7 @@ public class DAOCotacao {
             temp.setId(rs.getInt(1));
             temp.setData(rs.getString(2));
             temp.setValor(rs.getString(3)); 
+            temp.setTipoMoeda(cotacao.getTipoMoeda());
             list.add(temp);
         }
         pst.close();

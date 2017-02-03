@@ -60,9 +60,6 @@
                                         <form action="/PosJava/controle.cotacao.consultar" method="POST">                                            
                                             <label for="tipomoeda">Selecione a Moeda:</label>
                                             <select class="form-control" id="cbId" name="cbId">
-                                                <c:forEach var="item" items="${moeda.items}">
-                                                    <option>${item}</option>
-                                                </c:forEach>
                                             </select>                                                                             
                                             <label for="data">Digite a data:</label>
                                             <input class="form-control" type="text" name="txtData" value="" /><br/>
@@ -84,13 +81,17 @@
                                     <tr role="row">
                                         <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 153px;">Nome</th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 186px;">Cotação</th>
+                                        <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 153px;">Valor</th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 186px;">Data</th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 186px;"></th>
                                     </tr>
                                 </thead>
                                 <c:forEach var="item" items="${al}" varStatus="id">
                                     <tr class="#${id.count % 2 == 0 ? 'gradeA even' : 'gradeA odd' }" role="row">
-                                        <td class="sorting_1">${item.nome}</td>
-                                        <td>${item.simbolo}</td>
+                                        <td class="sorting_1">${item.tipoMoeda.nome}</td>
+                                        <td>${item.tipoMoeda.simbolo}</td>
+                                        <td class="sorting_1">${item.valor}</td>
+                                        <td>${item.data}</td>
                                         <td>
                                             <form action="/PosJava/controle.cotacao.excluir" method="POST">
                                                 <input type="hidden" name="hdnId" value="${item.id}"/>
@@ -121,7 +122,7 @@
 
         <!-- Custom Theme JavaScript -->
         <script src="/PosJava/dist/js/sb-admin-2.js"></script>
-        <script src="Scripts/cotacao.js"></script>
+        <script src="/PosJava/pages/Scripts/cotacao.js"></script>
         
     </body>
 
