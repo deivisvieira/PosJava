@@ -56,7 +56,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="form-group">
-                                    <form action="../controle.cotacao.excluir" method="POST">
+                                    <form action="/PosJava/controle.cotacao.excluir" method="POST">
                                         <label for="data">Digite a data:</label>
                                         <input class="form-control" type="text" name="txtData" value="" /><br/>
                                         <label for="valor">Digite o valor:</label>

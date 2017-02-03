@@ -82,7 +82,7 @@ public class DAOCotacao {
             strSql += " and data = '" + cotacao.getDataString() + "'";
         }
 
-        if (cotacao.getValor() != null) {            
+        if (cotacao.getValor() != null) {
             strSql += " and valor = " + cotacao.getValorString() + "";
         }
 
@@ -95,6 +95,40 @@ public class DAOCotacao {
 
             temp.setId(rs.getInt(1));
             temp.setData(rs.getString(2));
+            temp.setValor(rs.getString(3));
+
+            tipoMoedaTemp = new TipoMoeda();
+            tipoMoedaTemp.setId(rs.getInt(5));
+            tipoMoedaTemp.setNome(rs.getString(6));
+            tipoMoedaTemp.setSimbolo(rs.getString(7));
+
+            temp.setTipoMoeda(tipoMoedaTemp);
+            list.add(temp);
+        }
+        pst.close();
+
+        return list;
+    }
+
+    public ArrayList<Cotacao> ultimasCotacoes() throws Exception {
+        Cotacao temp = null;
+        TipoMoeda tipoMoedaTemp = null;
+        ArrayList<Cotacao> list = new ArrayList<>();
+        String strSql = new String();
+        strSql = "SELECT c.id, DATE_FORMAT(c.data,\"%d/%m/%Y\"), c.valor, c.tipo_moeda, tm.id, tm.nome, tm.simbolo, max.maxdata, max.tipo_moeda ";
+        strSql += " FROM sql10156007.cotacao c inner join sql10156007.tipo_moeda tm on c.tipo_moeda=tm.id ";
+        strSql += "inner join ";
+        strSql += "(select max(data) maxdata, tipo_moeda from sql10156007.cotacao group by tipo_moeda) max ";
+        strSql += " on max.tipo_moeda=c.tipo_moeda and max.maxdata = c.data order by max.maxdata desc;";
+        pst = con.prepareStatement(strSql);
+
+        rs = pst.executeQuery();
+
+        while (rs.next()) {
+            temp = new Cotacao();
+
+            temp.setId(rs.getInt(1));
+            temp.setDataString(rs.getString(2));
             temp.setValor(rs.getString(3));
 
             tipoMoedaTemp = new TipoMoeda();

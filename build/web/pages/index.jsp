@@ -97,12 +97,7 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div class="list-group">
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-money fa-fw"></i> Payment Received
-                                    <span class="pull-right text-muted small"><em>Yesterday</em>
-                                    </span>
-                                </a>
+                            <div class="list-group">  
                             </div>
                             <!-- /.list-group -->                           
                         </div>
@@ -125,7 +120,7 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-
-
+    
 </body>
 </html>
+ <script src="/PosJava/pages/Scripts/index.js"></script>

@@ -56,7 +56,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="form-group">
-                                        <form action="../controle.cotacao.incluir" method="POST">
+                                        <form action="/PosJava/controle.cotacao.incluir" method="POST">
                                             <select class="form-control" id="cbId" name="cbId">
                                             </select>                      
                                             <label for="data">Digite a data:</label>

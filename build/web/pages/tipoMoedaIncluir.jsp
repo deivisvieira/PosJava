@@ -56,7 +56,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="form-group">
-                                    <form action="../controle.tipomoeda.incluir" method="POST">
+                                    <form action="/PosJava/controle.tipomoeda.incluir" method="POST">
                                         <label for="nome">Digite o nome:</label>
                                         <input class="form-control" type="text" name="txtNome" value="" /><br/>
                                         <label for="simbolo">Digite o símbolo:</label>
