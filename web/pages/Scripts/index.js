@@ -54,14 +54,21 @@ $(document).ready(function () {
                 }
             } else {
                 var arr = JSON.parse(data);
+                var cols = [];
+                $.each(arr[0], function (key, value) {
+                    if (key != 'data') {
+                        cols.push(key);
+                    }
+                });
                 Morris.Line({
                     element: 'morris-area-chart',
                     data: arr,
                     xkey: 'data',
-                    ykeys:['2','20','19','22'],
-                    labels:['Dólar Americano','Dólar Canadense','Libra Britânica','Peso Argentino'],
+                    ykeys: cols,
+                    labels: cols,
                     parseTime: false,
-                    resize: true
+                    resize: true,
+                    ymax: 'auto 5'
                 });
             }
         }

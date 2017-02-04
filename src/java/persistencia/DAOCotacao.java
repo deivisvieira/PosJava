@@ -82,7 +82,7 @@ public class DAOCotacao {
         String strSql = new String();
         strSql = "SELECT * FROM sql10156007.cotacao c inner join sql10156007.tipo_moeda tm on c.tipo_moeda=tm.id WHERE 1=1";
         if (cotacao.getTipoMoeda().getId() != 0) {
-            strSql += " tipo_moeda ='" + cotacao.getTipoMoeda().getId() + "'";
+            strSql += " and tipo_moeda =" + cotacao.getTipoMoeda().getId();
         }
 
         if (cotacao.getDataString() != null) {
@@ -163,7 +163,7 @@ public class DAOCotacao {
         
         for (TipoMoeda tm : listaMoeda){
             contador++;
-            strSql += " MAX(IF(`tipo_moeda` = "+tm.getId()+",cast(valor as char(6)),0)) AS '"+tm.getId()+"'";
+            strSql += " MAX(IF(`tipo_moeda` = "+tm.getId()+",cast(valor as char(6)),0)) AS '"+tm.getNome()+"'";
             if (contador<listaMoeda.size()){
                 strSql+=",";
             }
