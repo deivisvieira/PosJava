@@ -10,6 +10,8 @@ This app is a non-profit work for the Objected Oriented Programming subject, Est
 * [jQuery] - All-around common javascript library
 * [bootstrap-notify] - Notifications plugin for twitter bootstrap
 * [jquery-gravatar] - Small jquery plugin to load Avatars from gravatar.com
+* [NetBeans] - Commonly used Java IDE
+* [MySql] - Open Source database
 
 The code is open source, found at [GitHub-repo].
 
@@ -29,3 +31,5 @@ MIT
    [Java]: <http://www.java.com>
    [bootstrap-notify]: <http://bootstrap-notify.remabledesigns.com/>
    [jquery-gravatar]: <https://github.com/zachleat/jQuery-Gravatar>
+   [NetBeans]: <https://netbeans.org/>
+   [MySql]: <https://www.mysql.com/>
